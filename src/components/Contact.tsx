@@ -6,6 +6,7 @@ import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "@/components/
 import ContactForm from "./ContactForm";
 import { useState } from "react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { copyEmail, EMAIL } from "@/lib/contact";
 
 // 이미지 import
 import lukaGif from "@/assets/luka.gif";
@@ -23,7 +24,7 @@ export const Contact = () => {
     {
       icon: Mail,
       title: "이메일",
-      description: "기술 문의",
+      description: "dltjdgh0928@naver.com",
       action: "이메일 보내기",
       color: "primary"
     },
@@ -143,12 +144,12 @@ export const Contact = () => {
           className={`text-center scroll-animate ${socialVisible ? 'animate' : ''}`}
           style={{ transitionDelay: '0.6s' }}
         >
-          <div className="flex justify-center space-x-6 mb-8">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-8">
             <Button 
               variant="ghost" 
               size="icon" 
               className="hover:glow-primary transition-smooth"
-              onClick={() => window.open('https://github.com/dltjdgh0928', '_blank')}
+              onClick={() => window.open('https://github.com/hitorish', '_blank')}
             >
               <Github className="h-6 w-6" />
             </Button>
@@ -159,6 +160,15 @@ export const Contact = () => {
               onClick={() => window.open('https://www.linkedin.com/in/%EC%84%B1%ED%98%B8-%EC%9D%B4-2243a3278/', '_blank')}
             >
               <Linkedin className="h-6 w-6" />
+            </Button>
+            <Button
+              variant="ghost"
+              className="h-10 gap-2 px-3 text-base hover:glow-primary transition-smooth"
+              title="클릭하면 주소가 복사돼요"
+              onClick={copyEmail}
+            >
+              <Mail className="h-5 w-5" />
+              {EMAIL}
             </Button>
           </div>
          

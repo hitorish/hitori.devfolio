@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { X, Menu } from "lucide-react";
+import { X, Menu, ListTree } from "lucide-react";
 
 interface TOCItem {
   id: string;
@@ -14,8 +14,8 @@ export const TableOfContents = () => {
 
   useEffect(() => {
     // 특정 섹션의 헤더만 찾기
-    const sectionIds = ["hero", "projects", "tech-stack", "contact"];
-    const sectionTitles = ["소개", "프로젝트", "기술 스택", "연락처"];
+    const sectionIds = ["hero", "awards", "project-list", "publications", "tech-stack", "contact"];
+    const sectionTitles = ["소개", "수상 실적", "프로젝트", "논문 · 저서", "기술 스택", "연락처"];
     const items: TOCItem[] = [];
     
     sectionIds.forEach((sectionId, index) => {
@@ -72,7 +72,10 @@ export const TableOfContents = () => {
       {isVisible ? (
         <div className="bg-background/80 backdrop-blur-sm border border-border/50 rounded-lg p-6 shadow-lg min-w-48">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-base font-semibold text-muted-foreground">📑 목차</h3>
+            <h3 className="flex items-center gap-2 text-base font-semibold text-muted-foreground">
+              <ListTree className="w-4 h-4" />
+              목차
+            </h3>
             <button
               onClick={toggleVisibility}
               className="p-2 hover:bg-muted rounded transition-colors"

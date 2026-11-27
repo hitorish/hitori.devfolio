@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Raw competition media (web-optimized copies live in src/assets/aramco)
+src/assets/Aramco_KU_Upstage/
+src/assets/paper/*.pdf
+src/assets/tensorflow/*.pdf
